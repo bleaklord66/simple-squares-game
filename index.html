@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hra pole</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, rgb(107, 245, 125), transparent);
+            height: 100vh;
+            margin: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .centred {
+            box-sizing: border-box;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .console {
+            box-sizing: border-box;
+            width: 825px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, rgb(162, 228, 76), rgb(165, 165, 165));
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            >* {
+                flex-shrink: 0;
+                width: 100px;
+                text-align: center;
+            }
+        }
+
+        .rules {
+            position: absolute;
+            z-index: 9999;
+            height: 500px;
+            width: 650px;
+            background: linear-gradient(180deg, rgb(137, 239, 5), rgb(165, 165, 165));
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inside-rules {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 100px;
+            margin-bottom: 500px;
+
+            >* {
+                flex-shrink: 0;
+                width: 100px;
+                text-align: center;
+            }
+        }
+
+        .escape-button {
+            font-size: 25px;
+            width: 40px;
+            height: 40px;
+            float: right;
+        }
+
+        .blur {
+            filter: blur(5px);
+        }
+
+        .unblur {
+            filter: none;
+        }
+    </style>
+</head>
+<div class="centred not-modal">
+    <button id="button-rules">See rules</button>
+    <br><br>
+</div>
+
+
+<div class="rules hidden modal">
+    <button id="espace-rules" class="escape-button">&#10005</button>
+    <div class="inside-rules">
+        <div>
+            <h1>Rules</h1>
+            <p>The aim of this game is to get the chest with the minimum number of rolls. First of all you need to roll
+                the dice. Than you can move based on what number you rolled. You cannot go to the squares you already
+                been to. You can get the chest only if you will have zero steps left after you step on it. </p>
+        </div>
+        <div>
+            <h1>Controls</h1>
+            <p>Move with WASD or with arrows. Roll with the button or with R. To restart the game, click to the restart
+                button. To espace this menu, use either the espace key or the X symbol.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="console not-modal">
+    <button id="button-roll">Roll</button>
+    <button id="button-restart">Press to start new game!</button>
+    <p id="instructions">instructions</p>
+    <p id="score">score</p>
+    <img id="roll" src="dice-0.png">
+    <p id="high-score">highscore</p>
+
+</div>
+
+
+
+<div id="line1" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line2" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line3" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line4" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line5" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line6" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line7" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line8" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+<div id="line9" class="centred not-modal">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+    <img src="square.png">
+</div>
+
+<body>
+    <script src=script.js></script>
+</body>
+
+</html>
