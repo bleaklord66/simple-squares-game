@@ -1,5 +1,3 @@
-//TODO modal na pravidla
-
 console.log('started');
 
 let allSquares = null;
