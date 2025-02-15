@@ -46,7 +46,7 @@ const init = function () {
         endGameImage.style.position = 'absolute';
         endGameImage.style.zIndex = '9999';
     };
-    endGameImage.classList.toggle('hidden');
+    endGameImage.classList.add('hidden');
 
     player = {
         howManyMoves: 0,
@@ -341,7 +341,7 @@ document.addEventListener('keydown', function (e) {
     }
     if (player.line === player.chestLine && player.index === player.chestIndex) {
         gameEnd = true;
-        highScore = player.score;
+        highScore = player.score; 'TODO add img'
         document.querySelector('#high-score').textContent = `Highscore: ${highScore}`;
         document.querySelector('#instructions').textContent = 'You win! Restart to play again.';
         allSquares[20].parentNode.insertBefore(endGameImage, allSquares[20]);
